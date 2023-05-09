@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   math_helper_func.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dkhatri <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/09 15:32:59 by dkhatri           #+#    #+#             */
+/*   Updated: 2023/05/09 16:59:38 by dkhatri          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "computor.h"
 
 double	ft_pow(double val, int n)
@@ -10,12 +22,14 @@ double	ft_pow(double val, int n)
 		return (val);
 	if (!n)
 		return (1);
-	proc = 1;
-	n1 = n * -1;
+	prod = 1;
+	n1 = n;
+	if (n < 0)
+		n1 *= -1;
 	i = -1;
 	while (++i < n1)
 	{
-		if (n1 < 0)
+		if (n < 0)
 			prod /= val;
 		else
 			prod *= val;

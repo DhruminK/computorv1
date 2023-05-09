@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_sqrt.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: dkhatri <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/09 15:32:53 by dkhatri           #+#    #+#             */
+/*   Updated: 2023/05/09 19:13:12 by dkhatri          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "computor.h"
 
 static double	ft_get_val_x(double x, t_poly *poly)
@@ -40,7 +52,7 @@ double	ft_sqrt(double num)
 {
 	t_poly	p;
 	t_poly	p_prime;
-	double		val;
+	double	val;
 
 	if (!num || (num == 1))
 		return (num);
