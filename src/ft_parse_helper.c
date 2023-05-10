@@ -21,11 +21,12 @@ static int	ft_parse_frac(double *coff, char **inp, uint8_t is_minus)
 		return (-1);
 	s = 10;
 	str = *inp - 1;
-	while (str && ft_is_valid(*(++str)) == 3)
+	while (++str && *str && ft_is_valid(*(str)) == 3)
 	{
 		*coff = (*coff) + ((str[0] - '0') / s);
 		s *= 10;
 	}
+	*inp = str;
 	if (is_minus)
 		*coff *= -1;
 	return (0);
@@ -48,7 +49,7 @@ int	ft_parse_num(double *coff, char **inp)
 	s = *inp - 1;
 	while (s && ft_is_valid(*(++s)) == 3)
 		*coff = ((*coff) * 10) + (s[0] - '0');
-	if (*coff != 0.0 && is_minus && !(--is_minus))
+	if (*coff != 0.0 && *s != '.' && is_minus && !(--is_minus))
 		*coff *= -1;
 	*inp = s;
 	if (*s != '.')
@@ -102,10 +103,11 @@ int	ft_parse_single_coff(double *coff, double *pow, char **inp)
 		return (-1);
 	*coff = 0;
 	*pow = 0;
+	ft_skipspaces(inp);
 	if (ft_parse_num(coff, inp) == -1)
 		return (-1);
 	ret = ft_parse_variable(pow, inp);
-	if (ret == -1 || ret == 0)
+	if (ret < 2)
 		return (ret);
 	if (ret == 1)
 		*inp -= 1;

@@ -16,6 +16,7 @@ static void	ft_solve_linear(t_poly *eqn)
 {
 	if (!eqn)
 		return ;
+	printf("Polynomial degree: 1\n");
 	printf("The solution is:\n");
 	printf("%.6f\n", -1 * (eqn->coff[0]) / (eqn->coff[1]));
 }
@@ -40,6 +41,7 @@ static void	ft_solve_quad(double a, double des, double half_soln)
 {
 	if (!a)
 		return ;
+	printf("Polynomial Degree : 2\n");
 	if (des == 0)
 	{
 		printf("Discriminant is zero, the single solution is :\n");
@@ -84,6 +86,9 @@ void	ft_solve(t_poly *eqn)
 		return (ft_solve_quad(eqn->coff[2], des, half_soln));
 	}
 	else if (eqn->degree > 2)
+	{
+		printf("Polynomial Degree : %d\n", eqn->degree);
 		printf("The polynomial degree is strictly "
 			"greater than 2, I can't solve.\n");
+	}
 }

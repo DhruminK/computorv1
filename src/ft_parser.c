@@ -26,6 +26,9 @@ static int	ft_process_single_coff(t_poly *poly, double coff,
 		return (0);
 	}
 	tmp = realloc(poly->coff, sizeof(double) * (pow + 1));
+	if (!tmp)
+		return (0);
+	poly->coff = tmp;
 	memset(poly->coff + poly->degree + 1, 0,
 			sizeof(double) * (pow - poly->degree));
 	poly->degree = pow;

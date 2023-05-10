@@ -52,6 +52,7 @@ static void	ft_print_reduce_form(t_poly *poly)
 
 	if (!poly)
 		return ;
+	printf("Reduced Form : ");
 	i = -1;
 	while (++i <= poly->degree)
 		ft_print_single_coff(poly->coff[i], i);
@@ -75,7 +76,6 @@ int	main(int ac, char **av)
 	else if (ret == -3)
 		return (ft_return_err(3));
 	ft_print_reduce_form(&eqn);
-	printf("Polynomial degree: %d\n", eqn.degree);
 	ft_solve(&eqn);
 	if (eqn.coff)
 		free(eqn.coff);
